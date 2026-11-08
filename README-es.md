@@ -54,7 +54,7 @@ El sistema utiliza MySQL para almacenar la información de usuarios, pinturas y 
 1. Clona el repositorio:
    
    ```bash
-   git clone https://github.com/TuUsuario/Pinturas.git
+   git clone https://github.com/CristinaTiznado/ExamenPinturas.git
    ```
 3. Accede al directorio del proyecto:
    
