@@ -56,7 +56,7 @@ The system uses MySQL to store information about users, paintings, and their rel
 1. Clone the repository:
    
    ```bash
-   git clone https://github.com/YourUsername/Pinturas.git
+   git clone https://github.com/CristinaTiznado/Pinturas.git
    ```
 2. Access the project directory:
    
