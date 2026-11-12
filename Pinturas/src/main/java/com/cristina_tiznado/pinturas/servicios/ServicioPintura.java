@@ -23,6 +23,10 @@ public class ServicioPintura {
         return this.repositorioPinturas.findById(id).orElse(null);
     }
 
+    public Pintura existeTitulo(String titulo) {
+        return this.repositorioPinturas.findByTitulo(titulo).orElse(null);
+    }
+
     // INSERT
     public Pintura crearPintura(Pintura pintura){
         return this.repositorioPinturas.save(pintura);

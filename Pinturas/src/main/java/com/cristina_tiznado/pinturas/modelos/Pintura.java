@@ -2,7 +2,6 @@ package com.cristina_tiznado.pinturas.modelos;
 
 import java.util.List;
 
-import jakarta.annotation.Nonnull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -43,7 +42,7 @@ public class Pintura {
     private String url;
 
     @NotNull(message = "Por favor, proporcionar cantidad.")
-    @Min(value = 1, message = "Debe ser un valor positivo.")
+    @Min(value = 0, message = "Debe ser un valor positivo.")
     private Integer cantidad;
 
     @NotNull(message = "Por favor, proporcionar precio.")

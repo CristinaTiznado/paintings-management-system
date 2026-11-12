@@ -3,6 +3,7 @@ package com.cristina_tiznado.pinturas.controladores;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.cristina_tiznado.pinturas.modelos.Usuario;
 import com.cristina_tiznado.pinturas.modelos.UsuarioLogin;
-import com.cristina_tiznado.pinturas.servicios.ServicioPintura;
 import com.cristina_tiznado.pinturas.servicios.ServicioUsuario;
 
 import jakarta.servlet.http.HttpSession;
@@ -72,22 +72,39 @@ public class ControladorUsuario {
     }
 
     @PostMapping("/register")
-    public String register(HttpSession sesion, @Valid @ModelAttribute("usuario") Usuario usuario, BindingResult validaciones, Model modelo){
-        
+    public String register(HttpSession sesion, @Valid @ModelAttribute("usuario") Usuario usuario,
+            BindingResult validaciones, Model modelo) {
+
         validaciones = this.servicioUsuario.validarRegistro(validaciones, usuario);
 
-        if(validaciones.hasErrors()){
+        if (validaciones.hasErrors()) {
             modelo.addAttribute("usuarioLogin", new UsuarioLogin());
             return "register.jsp";
         }
 
-        this.servicioUsuario.crearUsuario(usuario);
+        try {
+            this.servicioUsuario.crearUsuario(usuario);
 
-        Usuario nuevoUsuario = usuario.clone();
-        nuevoUsuario.setPassword("");
+            Usuario nuevoUsuario = usuario.clone();
+            nuevoUsuario.setPassword("");
 
-        sesion.setAttribute("usuario", nuevoUsuario);
+            sesion.setAttribute("usuario", nuevoUsuario);
 
-        return "redirect:/pinturas";
+            return "redirect:/pinturas";
+
+        } catch (DataAccessException e) {
+            usuario.setPassword("");
+            usuario.setConfirmarPassword("");
+
+            modelo.addAttribute("errorGlobal", "Error de conexión: No se pudo crear la cuenta en este momento.");
+            return "register.jsp";
+
+        } catch (Exception e) {
+            usuario.setPassword("");
+            usuario.setConfirmarPassword("");
+
+            modelo.addAttribute("errorGlobal", "Ocurrió un error inesperado. Por favor, inténtalo más tarde.");
+            return "register.jsp";
+        }
     }
 }

@@ -42,7 +42,8 @@ public class ControladorPintura {
 
         modelo.addAttribute("usuarioLogueado", u);
         modelo.addAttribute("pinturas", this.servicioPintura.obtenerTodasLasPinturas());
-        modelo.addAttribute("pinturasCompradas",this.servicioUsuario.obtenerUsuarioPorId(u.getId()).getPinturasCompradas());
+        modelo.addAttribute("pinturasCompradas",
+                this.servicioUsuario.obtenerUsuarioPorId(u.getId()).getPinturasCompradas());
 
         return "pinturas.jsp";
     }
@@ -63,9 +64,14 @@ public class ControladorPintura {
     }
 
     @PostMapping("/agregar")
-    public String agregar(@Valid @ModelAttribute("pintura") Pintura pintura, BindingResult validaciones, HttpSession sesion){
+    public String agregar(@Valid @ModelAttribute("pintura") Pintura pintura, BindingResult validaciones,
+            HttpSession sesion) {
 
-        if(validaciones.hasErrors()){
+        if (this.servicioPintura.existeTitulo(pintura.getTitulo()) != null) {
+            validaciones.rejectValue("titulo", "Unique", "Ya existe una obra con este título en la galería.");
+        }
+
+        if (validaciones.hasErrors()) {
             return "agregar.jsp";
         }
 
@@ -80,7 +86,7 @@ public class ControladorPintura {
     // EDITAR PINTURA
 
     @GetMapping("/formulario/editar/{id}")
-    public String formularioEditar(@PathVariable("id") Long id, HttpSession sesion, Model modelo){
+    public String formularioEditar(@PathVariable("id") Long id, HttpSession sesion, Model modelo) {
 
         Usuario u = (Usuario) sesion.getAttribute("usuario");
         if (u == null) {
@@ -92,10 +98,18 @@ public class ControladorPintura {
         return "editar.jsp";
     }
 
-    @PutMapping("/editar")
-    public String editar(@Valid @ModelAttribute("pintura") Pintura pintura, BindingResult validaciones){
+    @PostMapping("/editar")
+    public String editar(@Valid @ModelAttribute("pintura") Pintura pintura, BindingResult validaciones) {
 
-        if(validaciones.hasErrors()){
+        Pintura pinturaExistente = this.servicioPintura.existeTitulo(pintura.getTitulo());
+
+        // Si el título existe, Y el ID le pertenece a OTRA pintura distinta a la actual
+        // -> Es un duplicado real
+        if (pinturaExistente != null && !pinturaExistente.getId().equals(pintura.getId())) {
+            validaciones.rejectValue("titulo", "Unique", "Ya existe otra obra con este título en la galería.");
+        }
+
+        if (validaciones.hasErrors()) {
             return "editar.jsp";
         }
 
@@ -109,8 +123,8 @@ public class ControladorPintura {
     // ELIMINAR PINTURA
 
     @DeleteMapping("/eliminar/{id}")
-    public String eliminar(@PathVariable("id") Long id){
-        
+    public String eliminar(@PathVariable("id") Long id) {
+
         this.servicioPintura.eliminarPintura(id);
 
         return "redirect:/pinturas";
@@ -119,7 +133,7 @@ public class ControladorPintura {
     // DETALLE PINTURA
 
     @GetMapping("/detalle/{id}")
-    public String detalle(HttpSession sesion, @PathVariable("id") Long id, Model modelo){
+    public String detalle(HttpSession sesion, @PathVariable("id") Long id, Model modelo) {
 
         Usuario u = (Usuario) sesion.getAttribute("usuario");
         if (u == null) {
@@ -129,6 +143,49 @@ public class ControladorPintura {
         modelo.addAttribute("pintura", this.servicioPintura.obtenerPinturaPorId(id));
 
         return "detalle.jsp";
+    }
+
+    // COMPRAR PINTURA
+    @GetMapping("/comprar/{id}")
+    public String comprar(@PathVariable("id") Long id, HttpSession sesion) {
+
+        Usuario u = (Usuario) sesion.getAttribute("usuario");
+        if (u == null) {
+            return "redirect:/";
+        }
+
+        Pintura pintura = this.servicioPintura.obtenerPinturaPorId(id);
+
+        if (pintura == null) {
+            return "redirect:/pinturas";
+        } else if (pintura.getCantidad() > 0) {
+            pintura.setCantidad(pintura.getCantidad() - 1);
+
+            Usuario usuarioDB = this.servicioUsuario.obtenerUsuarioPorId(u.getId());
+            usuarioDB.getPinturasCompradas().add(pintura);
+
+            this.servicioPintura.modificarPintura(pintura);
+            this.servicioUsuario.modificarUsuario(usuarioDB);
+        }
+
+        return "redirect:/mis-compras";
+    }
+
+    // VISTA MIS COMPRAS
+    @GetMapping("/mis-compras")
+    public String misCompras(HttpSession sesion, Model modelo) {
+
+        Usuario u = (Usuario) sesion.getAttribute("usuario");
+        if (u == null) {
+            return "redirect:/";
+        }
+
+        Usuario usuarioDB = this.servicioUsuario.obtenerUsuarioPorId(u.getId());
+
+        modelo.addAttribute("usuarioLogueado", u);
+        modelo.addAttribute("compras", usuarioDB.getPinturasCompradas());
+
+        return "mis-compras.jsp";
     }
 
 }

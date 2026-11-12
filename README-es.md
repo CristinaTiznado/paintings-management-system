@@ -1,45 +1,48 @@
+🌍 Read in [English](README.md)
+
 # 🎨 Sistema de Gestión de Pinturas
 
-> Proyecto desarrollado como examen de certificación para el Bootcamp Full Stack Java impartido por Skillnest y patrocinado por Banco de Chile.
+> Proyecto desarrollado como examen de certificación para el Bootcamp Java Full Stack impartido por Skillnest y auspiciado por el Banco de Chile.
 
-Este proyecto es una aplicación web Full Stack desarrollada en Java con **Spring Boot** utilizando el patrón de arquitectura **MVC** (Modelo-Vista-Controlador). La plataforma permite la gestión de un catálogo de arte (pinturas), donde los usuarios pueden registrarse, publicar sus propias obras, explorar la galería completa y adquirir (comprar) pinturas disponibles, manejando automáticamente el inventario y el historial de compras.
+Este proyecto es una aplicación web Full Stack desarrollada en Java con **Spring Boot** utilizando el patrón de arquitectura **MVC** (Modelo-Vista-Controlador). La plataforma permite la gestión de un catálogo de arte (pinturas), donde los usuarios pueden registrarse, publicar sus propias obras, explorar la galería completa y adquirir (comprar) pinturas disponibles, gestionando automáticamente el inventario y el historial de compras.
 
-## 🚀 Funcionalidades Principales
+## 🚀 Características Principales
 
-* **Autenticación y Seguridad:** Sistema de registro e inicio de sesión seguro, con encriptación de contraseñas mediante BCrypt y control de accesos basado en sesiones de usuario.
-* **Gestión de Galería (CRUD):** Los usuarios autenticados pueden publicar nuevas pinturas, editar la información de sus obras publicadas y eliminarlas del sistema.
-* **Sistema de Adquisición:** Lógica transaccional que permite a los usuarios "comprar" pinturas. Al realizar una compra, el sistema descuenta automáticamente el stock de la obra y la añade al historial de "Mis Compras" del usuario.
-* **Validación de Datos (Backend):** Implementación estricta de validaciones (Jakarta Validation) para asegurar que los datos ingresados sean correctos (URLs de imágenes con formato válido, precios y cantidades positivas, longitudes mínimas de texto, y confirmación de contraseñas).
-* **Vistas Dinámicas:** Interfaces generadas del lado del servidor utilizando JSP y JSTL, adaptándose al estado del usuario (ej. deshabilitando el botón de compra si el usuario ya adquirió la obra o si está agotada).
+* **Autenticación y Seguridad:** Sistema de registro e inicio de sesión seguro, con encriptación de contraseñas mediante BCrypt y control de acceso basado en sesiones de usuario.
+* **UI/UX Moderno y Diseño Responsivo:** Interfaz en Modo Oscuro (Dark Mode) totalmente personalizada construida con variables CSS. Cuenta con diseños responsivos que utilizan CSS Grid para el catálogo y Flexbox para las tarjetas de autenticación centradas.
+* **Arquitectura Frontend Modular:** Estructura JSP que cumple con el principio DRY utilizando fragmentos de diseño (barras de navegación y encabezados) y estados activos dinámicos basados en parámetros de URL.
+* **Gestión Avanzada de Galería:** Los usuarios autenticados pueden publicar, editar y eliminar sus obras de arte. Las acciones destructivas (como eliminar una pintura) están protegidas por ventanas de confirmación nativas de JavaScript para evitar la pérdida accidental de datos.
+* **Sistema de Adquisición y Manejo de Casos Extremos:** Lógica transaccional para comprar pinturas. El sistema actualiza dinámicamente la interfaz para reflejar los cambios en el stock, deshabilitando los botones de compra para artículos agotados o impidiendo compras duplicadas por el mismo usuario.
+* **Validación de Datos Robusta:** Estricta validación en el backend (Jakarta Validation) para la integridad de los datos (precios positivos, URLs válidas), junto con consultas personalizadas a la base de datos para evitar que se registren títulos de obras duplicados. Incluye "Estados Vacíos" (Empty States) diseñados para catálogos o historiales de usuarios sin contenido.
 
 ## 🛠️ Stack Tecnológico
 
 * **Backend:** Java 17, Spring Boot (Web, MVC, Validation).
-* **Persistencia de Datos:** Spring Data JPA (Hibernate), MySQL Connector.
-* **Frontend:** JSP (JavaServer Pages), JSTL, HTML5, CSS3.
+* **Persistencia de Datos:** Spring Data JPA (Hibernate), Conector MySQL.
+* **Frontend:** JSP (JavaServer Pages), JSTL, HTML5, CSS3 (Tema Oscuro Personalizado).
+* **Recursos:** Lucide Icons (Iconografía vectorial).
 * **Seguridad:** jBcrypt (Hashing de contraseñas).
 * **Gestor de Dependencias:** Maven.
 
 ## 📋 Requisitos
 
-Para ejecutar este proyecto en tu entorno local, asegúrate de tener instalado:
+Para ejecutar este proyecto en tu entorno local, asegúrate de tener instalado lo siguiente:
 
 * **Java Development Kit (JDK)** versión 17 o superior.
 * **Maven** (para compilar y gestionar dependencias).
 * **MySQL Server**.
-* Un IDE (como Eclipse, IntelliJ IDEA, o VS Code).
+* Un IDE (como Eclipse, IntelliJ IDEA o VS Code).
 
-## ⚙️ Configuración de Base de Datos
+## ⚙️ Configuración de la Base de Datos
 
-El sistema utiliza MySQL para almacenar la información de usuarios, pinturas y sus relaciones. 
+El sistema utiliza MySQL para almacenar información sobre los usuarios, las pinturas y sus relaciones.
 
 1. Abre tu gestor de base de datos MySQL.
 2. Crea una nueva base de datos para el proyecto (por ejemplo, `pinturas_db`):
-   
    ```sql
    CREATE DATABASE pinturas_db;
    ```
-4. Verifica que en tu archivo `src/main/resources/application.properties` las credenciales coincidan con las de tu entorno local:
+3. Verifica que en tu archivo `src/main/resources/application.properties`, las credenciales coincidan con tu entorno local:
    
    ```properties
    spring.datasource.url=jdbc:mysql://localhost:3306/pinturas_db
@@ -47,37 +50,29 @@ El sistema utiliza MySQL para almacenar la información de usuarios, pinturas y 
    spring.datasource.password=TU_CONTRASEÑA
    spring.jpa.hibernate.ddl-auto=update
    ```
-   *(Nota: `ddl-auto=update` se encargará de crear las tablas `usuarios`, `pinturas` y la tabla intermedia `compras` automáticamente al iniciar).*
+   *(Nota: `ddl-auto=update` creará automáticamente las tablas `usuarios`, `pinturas` y la tabla intermedia `compras` al iniciar).*
 
-## 🏃‍♂️ Pasos para correrlo
+## 🏃‍♂️ Pasos para ejecutarlo
 
 1. Clona el repositorio:
-   
    ```bash
-   git clone https://github.com/CristinaTiznado/ExamenPinturas.git
+   git clone https://github.com/CristinaTiznado/paintings-management-system.git
    ```
-3. Accede al directorio del proyecto:
-   
+2. Accede al directorio del proyecto:
    ```bash
    cd Pinturas
    ```
-5. Instala las dependencias:
-   
-   ```bash
-   mvn clean install
-   ```
-7. Levanta la aplicación:
-   
+3. Inicia la aplicación:
    ```bash
    mvn spring-boot:run
    ```
-9. Abre tu navegador y dirígete a: **`http://localhost:8080`**
+4. Abre tu navegador y ve a: **`http://localhost:8080`**
 
-## 💡 Uso de la App
+## 💡 Uso de la Aplicación
 
-1. **Registro/Login:** Crea una cuenta nueva o inicia sesión para acceder a la galería.
-2. **Explorar:** En la vista principal (`/pinturas`), verás todas las obras publicadas por la comunidad.
-3. **Publicar Obra:** Ve a "Agregar" para registrar una nueva pintura indicando su título, año, descripción, enlace a una imagen, cantidad en stock y precio.
-4. **Comprar:** Haz clic en cualquier pintura del catálogo para ver sus detalles. Si hay inventario, puedes darle a "Comprar".
-5. **Mis Compras:** Revisa el historial de las pinturas que has adquirido en la sección dedicada.
-6. **Administrar:** Si eres el autor original de una pintura, verás un ícono de edición que te permitirá actualizar su información o borrarla.
+1. **Registro/Inicio de Sesión:** Crea una nueva cuenta o inicia sesión para acceder a la galería a través del portal de autenticación centrado.
+2. **Explorar:** En la vista principal (`/pinturas`), verás todas las obras publicadas por la comunidad presentadas en una cuadrícula responsiva.
+3. **Publicar Obra:** Ve a "Agregar" para registrar una nueva pintura. El sistema validará que el título sea único antes de publicarla.
+4. **Comprar:** Haz clic en cualquier pintura del catálogo para ver sus detalles. Si hay inventario disponible y aún no la has comprado, puedes hacer clic en "Agregar a mis compras".
+5. **Mis Compras:** Revisa el historial de las pinturas que has adquirido en tu sección de galería dedicada.
+6. **Gestionar:** Si eres el autor original de una pintura, verás un botón de edición resaltado que te permite actualizar su información o eliminarla permanentemente.
