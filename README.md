@@ -75,8 +75,52 @@ The system uses MySQL to store information about users, paintings, and their rel
 ## 💡 App Usage
 
 1. **Register/Login:** Create a new account or log in to access the gallery via the centered authentication portal.
+   
+   *Login layout*
+   ![Login](./assets/Login.png)
+
+   *Register layout*
+   ![Register](./assets/Registro.png)
+   
 2. **Explore:** On the main view (`/pinturas`), you will see all artworks published by the community presented in a responsive grid.
+
+   *Empty dashboard*
+   ![Empty Dashboard](./assets/Empty%20State%20-%20Dashboard.png)
+
+   *Catalog view*
+   ![Dashboard](./assets/Dashboard.png)
+
 3. **Publish Artwork:** Go to "Agregar" to register a new painting. The system will validate that the title is unique before publishing.
+
+   *Add painting*
+   ![Add](./assets/Agregar.png)
+
 4. **Buy:** Click on any painting in the catalog to see its details. If there is inventory available and you haven't bought it yet, you can click "Agregar a mis compras".
+   
+   *Painting details*
+   ![Paint Detail](./assets/Detalle.png)
+
+   *Already purchased state*
+   ![Buyed Paint](./assets/Detalle%20Pintura%20Comprada.png)
+
+   *Out of stock state*
+   ![Sold Out](./assets/Pintura%20Sin%20Stock.png)
+
 5. **My Purchases:** Check the history of the paintings you have acquired in your dedicated gallery section.
+   
+   *View for new users without purchases*
+   ![Empty State Mis Compras](./assets/Empty%20State%20-%20Mis%20Compras.png)
+
+   *View for users with purchases*
+   ![Mis compras](./assets/Mis%20Compras.png)
+
 6. **Manage:** If you are the original author of a painting, you will see a highlighted edit button that allows you to update its information or permanently delete it.
+
+   *Edit button on dashboard*
+   ![Edit button on dashboard](./assets/Dashboard%20Editar.png)
+
+   *Edit artwork form*
+   ![Edit artwork form](./assets/Editar.png)
+
+   *Delete confirmation prompt*
+   ![Delete confirmation prompt](./assets/Confirmacion%20Eliminar%20Pintura.png)

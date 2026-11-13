@@ -70,9 +70,53 @@ El sistema utiliza MySQL para almacenar información sobre los usuarios, las pin
 
 ## 💡 Uso de la Aplicación
 
-1. **Registro/Inicio de Sesión:** Crea una nueva cuenta o inicia sesión para acceder a la galería a través del portal de autenticación centrado.
+1. **Registro/Login:** Crea una cuenta nueva o inicia sesión para acceder a la galería mediante el portal de autenticación centrado.
+   
+   *Vista de login*
+   ![Login](./assets/login.png)
+
+   *Vista de registro*
+   ![Registro](./assets/Registro.png)
+   
 2. **Explorar:** En la vista principal (`/pinturas`), verás todas las obras publicadas por la comunidad presentadas en una cuadrícula responsiva.
-3. **Publicar Obra:** Ve a "Agregar" para registrar una nueva pintura. El sistema validará que el título sea único antes de publicarla.
+
+   *Catálogo vacío*
+   ![Dashboard vacío](./assets/Empty%20State%20-%20Dashboard.png)
+
+   *Vista del catálogo*
+   ![Dashboard](./assets/Dashboard.png)
+
+3. **Publicar Obra:** Ve a "Agregar" para registrar una nueva pintura. El sistema validará que el título sea único antes de publicar.
+
+   *Agregar pintura*
+   ![Agregar](./assets/Agregar.png)
+
 4. **Comprar:** Haz clic en cualquier pintura del catálogo para ver sus detalles. Si hay inventario disponible y aún no la has comprado, puedes hacer clic en "Agregar a mis compras".
-5. **Mis Compras:** Revisa el historial de las pinturas que has adquirido en tu sección de galería dedicada.
-6. **Gestionar:** Si eres el autor original de una pintura, verás un botón de edición resaltado que te permite actualizar su información o eliminarla permanentemente.
+   
+   *Detalles de la pintura*
+   ![Detalle de pintura](./assets/Detalle.png)
+
+   *Estado ya adquirida*
+   ![Pintura comprada](./assets/Detalle%20Pintura%20Comprada.png)
+
+   *Estado sin stock*
+   ![Agotado](./assets/Pintura%20Sin%20Stock.png)
+
+5. **Mis Compras:** Revisa el historial de las pinturas que has adquirido en tu sección dedicada de la galería.
+   
+   *Vista para usuarios nuevos sin compras*
+   ![Empty State Mis Compras](./assets/Empty%20State%20-%20Mis%20Compras.png)
+
+   *Vista para usuarios con compras*
+   ![Mis compras](./assets/Mis%20Compras.png)
+
+6. **Gestionar:** Si eres el autor original de una pintura, verás un botón de edición destacado que te permite actualizar su información o eliminarla permanentemente.
+
+   *Botón de edición en el dashboard*
+   ![Botón de edición en dashboard](./assets/Dashboard%20Editar.png)
+
+   *Formulario de edición de obra*
+   ![Formulario de edición de obra](./assets/Editar.png)
+
+   *Confirmación de eliminación*
+   ![Confirmación de eliminación](./assets/Confirmacion%20Eliminar%20Pintura.png)

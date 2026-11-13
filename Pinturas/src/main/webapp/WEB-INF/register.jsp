@@ -25,7 +25,7 @@
                 
                 <form:label path="nombre">Nombre</form:label>
                 <div class="input-error-wrapper">
-                    <form:input type="text" path="nombre" placeholder="Ej: Constanza"/>
+                    <form:input type="text" path="nombre" placeholder="Tu nombre"/>
                     <form:errors path="nombre"/>
                 </div>
 
