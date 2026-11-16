@@ -47,7 +47,7 @@ public class Pintura {
 
     @NotNull(message = "Por favor, proporcionar precio.")
     @Min(value = 1, message = "Debe ser un valor positivo.")
-    private Double precio;
+    private Integer precio;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")
@@ -59,7 +59,7 @@ public class Pintura {
 
     public Pintura(){}
 
-    public Pintura(String titulo, Integer anio, String descripcion, String url, Integer cantidad, Double precio) {
+    public Pintura(String titulo, Integer anio, String descripcion, String url, Integer cantidad, Integer precio) {
         this.titulo = titulo;
         this.anio = anio;
         this.descripcion = descripcion;
@@ -116,11 +116,11 @@ public class Pintura {
         this.cantidad = cantidad;
     }
 
-    public Double getPrecio() {
+    public Integer getPrecio() {
         return precio;
     }
 
-    public void setPrecio(Double precio) {
+    public void setPrecio(Integer precio) {
         this.precio = precio;
     }
 

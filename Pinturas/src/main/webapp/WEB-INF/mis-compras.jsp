@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+    <fmt:setLocale value="es_CL"/>
     <!-- Menú principal modular con parámetro de estado activo -->
     <jsp:include page="navbar.jsp">
         <jsp:param name="menu" value="compras" />
@@ -37,7 +39,7 @@
                         <p><i data-lucide="calendar" style="width: 16px; height: 16px; vertical-align: -3px;"></i> ${pintura.anio}</p>
                         
                         <p style="font-size: 1.15rem; font-weight: 600; color: var(--accent-blue); margin-top: 12px;">
-                            $${pintura.precio}
+                            $<fmt:formatNumber value="${pintura.precio}" type="number" maxFractionDigits="0"/>
                         </p>
                         
                         <c:if test="${usuarioLogueado.id == pintura.creador.id}">

@@ -1,126 +1,90 @@
-🌍 Leer en [Español](README-es.md)*
+🌍 *Read in [Español](README-es.md)*
 
 # 🎨 Paintings Management System
 
-> Project developed as a certification exam for the Full Stack Java Bootcamp taught by Skillnest and sponsored by Banco de Chile.
+![Java](https://img.shields.io/badge/Java_17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![JSP](https://img.shields.io/badge/JSP-007396?style=for-the-badge&logo=java&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-This project is a Full Stack web application developed in Java with **Spring Boot** using the **MVC** (Model-View-Controller) architecture pattern. The platform allows the management of an art catalog (paintings), where users can register, publish their own artworks, explore the complete gallery, and acquire (buy) available paintings, automatically managing inventory and purchase history.
+**Paintings Management System** is a Full Stack Java web application designed to manage an art catalog. It allows users to register, publish their own artworks, explore the complete gallery, and acquire available paintings, automatically managing inventory and purchase history. Originally developed as a certification exam for the Full Stack Java Bootcamp by **Skillnest** and **Banco de Chile**, the project features a fully custom Dark Mode interface, robust transactional logic, and strict backend validations.
 
-## 🚀 Main Features
+## ✨ Key Features
 
-- **Authentication and Security:** Secure registration and login system, with password encryption using BCrypt and access control based on user sessions.
-- **Modern UI/UX & Responsive Design:** Fully custom Dark Mode interface built with CSS variables. Features responsive layouts utilizing CSS Grid for the catalog and Flexbox for centered authentication cards.
-- **Modular Frontend Architecture:** DRY-compliant JSP structure using layout fragments (navbars and headers) and dynamic active states based on URL parameters.
-- **Advanced Gallery Management:** Authenticated users can publish, edit, and delete their artworks. Destructive actions (like deleting a painting) are protected by native JS confirmation prompts to prevent accidental data loss.
-- **Acquisition System & Edge-Case Handling:** Transactional logic for buying paintings. The system dynamically updates the UI to reflect stock changes, disabling purchase buttons for out-of-stock items or preventing duplicate purchases from the same user.
-- **Robust Data Validation:** Strict backend validation (Jakarta Validation) for data integrity (positive prices, valid URLs), coupled with custom database queries to prevent duplicate artwork titles from being registered. Includes designed "Empty States" for empty catalogs or user histories.
+* 🔐 **Authentication and Security:** Secure registration and login system, with password encryption using BCrypt and access control based on user sessions.
+* 📱 **Modern UI & Responsive Design:** Fully custom Dark Mode interface built with CSS variables. Features responsive layouts utilizing CSS Grid for the catalog and Flexbox for centered authentication cards.
+* 🏗️ **Modular Frontend Architecture:** DRY-compliant JSP structure using layout fragments (navbars and headers) and dynamic active states based on URL parameters.
+* 📝 **Advanced Gallery Management:** Authenticated users can publish, edit, and delete their artworks. Destructive actions are protected by native JS confirmation prompts.
+* 🛒 **Acquisition System & Edge-Case Handling:** Transactional logic for buying paintings. The system dynamically updates the UI to reflect stock changes, disabling purchase buttons for out-of-stock items or preventing duplicate purchases.
+* ✅ **Robust Data Validation:** Strict backend validation (Jakarta Validation) for data integrity, coupled with custom database queries to prevent duplicate artwork titles.
+
+## 📸 Project Demos
+
+See the Paintings Management System in action! Below are the full navigation flows for the application, including user authentication, gallery exploration, artwork publishing, and the acquisition system.
+
+*Desktop Experience*<br>
+
+
+<br>
+
+*Mobile Experience*<br>
+
+
+### Empty States & Edge Cases
+Custom illustrations and dynamic UI handling for empty catalogs, out-of-stock items, and previously acquired paintings, ensuring a polished user experience.
+
+*Empty Dashboard*<br>
+<img src="assets/Empty-State-Dashboard.png" width="400">
+
+*Empty Purchases History*<br>
+<img src="assets/Empty-State-Mis-Compras.png" width="400">
+
+*Empty Dashboard Mobile Version*<br>
+<img src="assets/Empty-State-Dashboard-Mobil.png" width="400">
+
+*Empty Purchases History Mobile Version*<br>
+<img src="assets/Empty-State-Mis-Compras-Mobil.png" width="400">
 
 ## 🛠️ Tech Stack
 
-- **Backend:** Java 17, Spring Boot (Web, MVC, Validation).
-- **Data Persistence:** Spring Data JPA (Hibernate), MySQL Connector.
-- **Frontend:** JSP (JavaServer Pages), JSTL, HTML5, CSS3 (Custom Dark Theme).
-- **Assets:** Lucide Icons (Vector iconography).
-- **Security:** jBcrypt (Password hashing).
-- **Dependency Manager:** Maven.
-
-## 📋 Requirements
-
-To run this project in your local environment, make sure you have the following installed:
-
-- **Java Development Kit (JDK)** version 17 or higher.
-- **Maven** (to compile and manage dependencies).
-- **MySQL Server**.
-- An IDE (like Eclipse, IntelliJ IDEA, or VS Code).
+* **Backend:** Java 17, Spring Boot, Spring MVC, Spring Data JPA, Hibernate, Bean Validation.
+* **Frontend:** JSP, JSTL, Custom CSS3 (Dark Theme, Flexbox, Grid), JavaScript.
+* **Security:** jBcrypt (Password hashing).
+* **Database:** MySQL.
+* **Icons:** [Lucide Icons](https://lucide.dev/).
 
 ## ⚙️ Database Configuration
 
-The system uses MySQL to store information about users, paintings, and their relationships. 
-
-1. Open your MySQL database manager.
-2. Create a new database for the project (for example, `pinturas_db`):
-   
+1. Open your MySQL manager.
+2. Create the database by running:
    ```sql
    CREATE DATABASE pinturas_db;
    ```
-3. Verify that in your `src/main/resources/application.properties` file, the credentials match your local environment:
-   
+3. Verify that the `src/main/resources/application.properties` file has your local credentials:
    ```properties
    spring.datasource.url=jdbc:mysql://localhost:3306/pinturas_db
    spring.datasource.username=root
    spring.datasource.password=YOUR_PASSWORD
    spring.jpa.hibernate.ddl-auto=update
    ```
-   *(Note: `ddl-auto=update` will automatically create the `usuarios`, `pinturas`, and the intermediate `compras` tables upon startup).*
+   *(Hibernate will create the `usuarios`, `pinturas`, and `compras` tables automatically).*
 
-## 🏃‍♂️ Steps to run it
+## 🏃‍♂️ Steps to run
 
-1. Clone the repository:
-   
+1. Clone this repository:
    ```bash
    git clone https://github.com/CristinaTiznado/paintings-management-system.git
    ```
-2. Access the project directory:
-   
+2. Navigate to the project directory:
    ```bash
    cd Pinturas
    ```
 3. Start the application:
-   
    ```bash
    mvn spring-boot:run
    ```
-4. Open your browser and go to: **`http://localhost:8080`**
+4. Open in your browser: **`http://localhost:8080`**
 
-## 💡 App Usage
-
-1. **Register/Login:** Create a new account or log in to access the gallery via the centered authentication portal.
-   
-   *Login layout*
-   ![Login](./assets/Login.png)
-
-   *Register layout*
-   ![Register](./assets/Registro.png)
-   
-2. **Explore:** On the main view (`/pinturas`), you will see all artworks published by the community presented in a responsive grid.
-
-   *Empty dashboard*
-   ![Empty Dashboard](./assets/Empty%20State%20-%20Dashboard.png)
-
-   *Catalog view*
-   ![Dashboard](./assets/Dashboard.png)
-
-3. **Publish Artwork:** Go to "Agregar" to register a new painting. The system will validate that the title is unique before publishing.
-
-   *Add painting*
-   ![Add](./assets/Agregar.png)
-
-4. **Buy:** Click on any painting in the catalog to see its details. If there is inventory available and you haven't bought it yet, you can click "Agregar a mis compras".
-   
-   *Painting details*
-   ![Paint Detail](./assets/Detalle.png)
-
-   *Already purchased state*
-   ![Buyed Paint](./assets/Detalle%20Pintura%20Comprada.png)
-
-   *Out of stock state*
-   ![Sold Out](./assets/Pintura%20Sin%20Stock.png)
-
-5. **My Purchases:** Check the history of the paintings you have acquired in your dedicated gallery section.
-   
-   *View for new users without purchases*
-   ![Empty State Mis Compras](./assets/Empty%20State%20-%20Mis%20Compras.png)
-
-   *View for users with purchases*
-   ![Mis compras](./assets/Mis%20Compras.png)
-
-6. **Manage:** If you are the original author of a painting, you will see a highlighted edit button that allows you to update its information or permanently delete it.
-
-   *Edit button on dashboard*
-   ![Edit button on dashboard](./assets/Dashboard%20Editar.png)
-
-   *Edit artwork form*
-   ![Edit artwork form](./assets/Editar.png)
-
-   *Delete confirmation prompt*
-   ![Delete confirmation prompt](./assets/Confirmacion%20Eliminar%20Pintura.png)
+---
+*Developed by **Cristina Tiznado** for portfolio display.*

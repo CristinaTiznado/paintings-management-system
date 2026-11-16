@@ -1,122 +1,109 @@
-🌍 Read in [English](README.md)
+🌍 *Leer en [Inglés](README.md)*
 
 # 🎨 Sistema de Gestión de Pinturas
 
-> Proyecto desarrollado como examen de certificación para el Bootcamp Java Full Stack impartido por Skillnest y auspiciado por el Banco de Chile.
+**Sistema de Gestión de Pinturas** es una aplicación web Full Stack en Java diseñada para administrar un catálogo de arte. Permite a los usuarios registrarse, publicar sus propias obras, explorar la galería completa y adquirir las pinturas disponibles, gestionando automáticamente el inventario y el historial de compras. Desarrollado originalmente como examen de certificación para el Bootcamp Full Stack Java impartido por **Skillnest** y patrocinado por **Banco de Chile**, el proyecto cuenta con una interfaz en Modo Oscuro (Dark Mode) completamente personalizada, lógica transaccional robusta y estrictas validaciones en el backend.
 
-Este proyecto es una aplicación web Full Stack desarrollada en Java con **Spring Boot** utilizando el patrón de arquitectura **MVC** (Modelo-Vista-Controlador). La plataforma permite la gestión de un catálogo de arte (pinturas), donde los usuarios pueden registrarse, publicar sus propias obras, explorar la galería completa y adquirir (comprar) pinturas disponibles, gestionando automáticamente el inventario y el historial de compras.
+## ✨ Características Principales
 
-## 🚀 Características Principales
+* 🔐 **Autenticación y Seguridad:** Sistema seguro de registro e inicio de sesión, con encriptación de contraseñas mediante BCrypt y control de acceso basado en sesiones de usuario.
 
-* **Autenticación y Seguridad:** Sistema de registro e inicio de sesión seguro, con encriptación de contraseñas mediante BCrypt y control de acceso basado en sesiones de usuario.
-* **UI/UX Moderno y Diseño Responsivo:** Interfaz en Modo Oscuro (Dark Mode) totalmente personalizada construida con variables CSS. Cuenta con diseños responsivos que utilizan CSS Grid para el catálogo y Flexbox para las tarjetas de autenticación centradas.
-* **Arquitectura Frontend Modular:** Estructura JSP que cumple con el principio DRY utilizando fragmentos de diseño (barras de navegación y encabezados) y estados activos dinámicos basados en parámetros de URL.
-* **Gestión Avanzada de Galería:** Los usuarios autenticados pueden publicar, editar y eliminar sus obras de arte. Las acciones destructivas (como eliminar una pintura) están protegidas por ventanas de confirmación nativas de JavaScript para evitar la pérdida accidental de datos.
-* **Sistema de Adquisición y Manejo de Casos Extremos:** Lógica transaccional para comprar pinturas. El sistema actualiza dinámicamente la interfaz para reflejar los cambios en el stock, deshabilitando los botones de compra para artículos agotados o impidiendo compras duplicadas por el mismo usuario.
-* **Validación de Datos Robusta:** Estricta validación en el backend (Jakarta Validation) para la integridad de los datos (precios positivos, URLs válidas), junto con consultas personalizadas a la base de datos para evitar que se registren títulos de obras duplicados. Incluye "Estados Vacíos" (Empty States) diseñados para catálogos o historiales de usuarios sin contenido.
+* 📱 **Diseño UI/UX Moderno y Responsivo:** Interfaz en Modo Oscuro construida desde cero con variables CSS. Presenta diseños responsivos que utilizan CSS Grid para el catálogo y Flexbox para las tarjetas de autenticación centradas.
+
+* 🏗️ **Arquitectura Frontend Modular:** Estructura de vistas JSP aplicando el principio DRY (Don't Repeat Yourself) mediante el uso de fragmentos (navbars y headers) y estados activos dinámicos basados en los parámetros de la URL.
+
+* 📝 **Gestión Avanzada de Galería:** Los usuarios autenticados pueden publicar, editar y eliminar sus obras de arte. Las acciones destructivas (como eliminar) están protegidas por alertas de confirmación nativas en JS.
+
+* 🛒 **Sistema de Adquisición y Casos Extremos:** Lógica transaccional para la compra de pinturas. El sistema actualiza dinámicamente la UI para reflejar cambios en el stock, deshabilitando botones de compra para artículos agotados o previniendo compras duplicadas.
+
+* ✅ **Validación Robusta de Datos:** Estricta validación en el backend (Jakarta Validation) para asegurar la integridad de los datos, combinada con consultas personalizadas a la base de datos para evitar que se registren títulos de obras duplicados.
+
+## 📸 Demos del Proyecto
+
+¡Mira el sistema en acción! A continuación, se muestran los flujos de navegación completos de la aplicación, incluyendo la autenticación, exploración del catálogo, publicación de obras y el sistema de compras.
+
+*Experiencia de Escritorio*
+
+
+
+*Experiencia Móvil*
+
+
+
+### Estados Vacíos y Casos Especiales
+
+Ilustraciones a medida y manejo dinámico de la interfaz para catálogos vacíos, artículos sin stock y obras previamente adquiridas, garantizando una excelente experiencia de usuario.
+
+*Dashboard Vacío*<br>
+<img src="assets/Empty-State-Dashboard.png" width="400">
+
+*Historial de Compras Vacío*<br>
+<img src="assets/Empty-State-Mis-Compras.png" width="400">
+
+*Dashboard Vacío Versión Mobil*<br>
+<img src="assets/Empty-State-Dashboard-Mobil.png" width="400">
+
+*Historial de Compras Vacío Versión Mobil*<br>
+<img src="assets/Empty-State-Mis-Compras-Mobil.png" width="400">
 
 ## 🛠️ Stack Tecnológico
 
-* **Backend:** Java 17, Spring Boot (Web, MVC, Validation).
-* **Persistencia de Datos:** Spring Data JPA (Hibernate), Conector MySQL.
-* **Frontend:** JSP (JavaServer Pages), JSTL, HTML5, CSS3 (Tema Oscuro Personalizado).
-* **Recursos:** Lucide Icons (Iconografía vectorial).
+* **Backend:** Java 17, Spring Boot, Spring MVC, Spring Data JPA, Hibernate, Bean Validation.
+
+* **Frontend:** JSP, JSTL, CSS3 (Custom Dark Theme, Flexbox, Grid), JavaScript.
+
 * **Seguridad:** jBcrypt (Hashing de contraseñas).
-* **Gestor de Dependencias:** Maven.
 
-## 📋 Requisitos
+* **Base de Datos:** MySQL.
 
-Para ejecutar este proyecto en tu entorno local, asegúrate de tener instalado lo siguiente:
-
-* **Java Development Kit (JDK)** versión 17 o superior.
-* **Maven** (para compilar y gestionar dependencias).
-* **MySQL Server**.
-* Un IDE (como Eclipse, IntelliJ IDEA o VS Code).
+* **Iconos:** [Lucide Icons](https://lucide.dev/).
 
 ## ⚙️ Configuración de la Base de Datos
 
-El sistema utiliza MySQL para almacenar información sobre los usuarios, las pinturas y sus relaciones.
-
 1. Abre tu gestor de base de datos MySQL.
-2. Crea una nueva base de datos para el proyecto (por ejemplo, `pinturas_db`):
-   ```sql
-   CREATE DATABASE pinturas_db;
+
+2. Crea la base de datos ejecutando:
+
    ```
-3. Verifica que en tu archivo `src/main/resources/application.properties`, las credenciales coincidan con tu entorno local:
+   CREATE DATABASE pinturas_db;
    
-   ```properties
+   ```
+
+3. Verifica que el archivo `src/main/resources/application.properties` tenga tus credenciales locales:
+
+   ```
    spring.datasource.url=jdbc:mysql://localhost:3306/pinturas_db
    spring.datasource.username=root
    spring.datasource.password=TU_CONTRASEÑA
    spring.jpa.hibernate.ddl-auto=update
+   
    ```
-   *(Nota: `ddl-auto=update` creará automáticamente las tablas `usuarios`, `pinturas` y la tabla intermedia `compras` al iniciar).*
 
-## 🏃‍♂️ Pasos para ejecutarlo
+   *(Hibernate creará automáticamente las tablas `usuarios`, `pinturas` y `compras` al iniciar).*
 
-1. Clona el repositorio:
-   ```bash
+## 🏃‍♂️ Pasos para ejecutar
+
+1. Clona este repositorio:
+
+   ```
    git clone https://github.com/CristinaTiznado/paintings-management-system.git
+   
    ```
-2. Accede al directorio del proyecto:
-   ```bash
+
+2. Navega al directorio del proyecto:
+
+   ```
    cd Pinturas
+   
    ```
+
 3. Inicia la aplicación:
-   ```bash
-   mvn spring-boot:run
+
    ```
-4. Abre tu navegador y ve a: **`http://localhost:8080`**
-
-## 💡 Uso de la Aplicación
-
-1. **Registro/Login:** Crea una cuenta nueva o inicia sesión para acceder a la galería mediante el portal de autenticación centrado.
+   mvn spring-boot:run
    
-   *Vista de login*
-   ![Login](./assets/login.png)
+   ```
 
-   *Vista de registro*
-   ![Registro](./assets/Registro.png)
-   
-2. **Explorar:** En la vista principal (`/pinturas`), verás todas las obras publicadas por la comunidad presentadas en una cuadrícula responsiva.
+4. Abre tu navegador en: **`http://localhost:8080`**
 
-   *Catálogo vacío*
-   ![Dashboard vacío](./assets/Empty%20State%20-%20Dashboard.png)
-
-   *Vista del catálogo*
-   ![Dashboard](./assets/Dashboard.png)
-
-3. **Publicar Obra:** Ve a "Agregar" para registrar una nueva pintura. El sistema validará que el título sea único antes de publicar.
-
-   *Agregar pintura*
-   ![Agregar](./assets/Agregar.png)
-
-4. **Comprar:** Haz clic en cualquier pintura del catálogo para ver sus detalles. Si hay inventario disponible y aún no la has comprado, puedes hacer clic en "Agregar a mis compras".
-   
-   *Detalles de la pintura*
-   ![Detalle de pintura](./assets/Detalle.png)
-
-   *Estado ya adquirida*
-   ![Pintura comprada](./assets/Detalle%20Pintura%20Comprada.png)
-
-   *Estado sin stock*
-   ![Agotado](./assets/Pintura%20Sin%20Stock.png)
-
-5. **Mis Compras:** Revisa el historial de las pinturas que has adquirido en tu sección dedicada de la galería.
-   
-   *Vista para usuarios nuevos sin compras*
-   ![Empty State Mis Compras](./assets/Empty%20State%20-%20Mis%20Compras.png)
-
-   *Vista para usuarios con compras*
-   ![Mis compras](./assets/Mis%20Compras.png)
-
-6. **Gestionar:** Si eres el autor original de una pintura, verás un botón de edición destacado que te permite actualizar su información o eliminarla permanentemente.
-
-   *Botón de edición en el dashboard*
-   ![Botón de edición en dashboard](./assets/Dashboard%20Editar.png)
-
-   *Formulario de edición de obra*
-   ![Formulario de edición de obra](./assets/Editar.png)
-
-   *Confirmación de eliminación*
-   ![Confirmación de eliminación](./assets/Confirmacion%20Eliminar%20Pintura.png)
+*Desarrollado por **Cristina Tiznado** para muestra de portafolio.*

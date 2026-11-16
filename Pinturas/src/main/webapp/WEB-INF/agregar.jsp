@@ -55,7 +55,7 @@
 
                 <form:label path="precio">Precio ($)</form:label>
                 <div class="input-error-wrapper">
-                    <form:input type="number" step="0.01" min="0" path="precio" placeholder="0.00"/>
+                    <form:input type="number" step="0.01" min="0" path="precio" placeholder="1000"/>
                     <form:errors path="precio"/>
                 </div>
 

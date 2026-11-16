@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+    <fmt:setLocale value="es_CL"/>
     <!-- Menú modular -->
     <jsp:include page="navbar.jsp" />
 
@@ -50,7 +52,7 @@
                 <div style="display: flex; gap: 40px; margin-bottom: 32px; background-color: var(--bg-input); padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--border);">
                     <div>
                         <strong class="text-muted" style="display: block; margin-bottom: 4px; font-size: 0.85rem; text-transform: uppercase;">Precio</strong>
-                        <span style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue);">$${pintura.precio}</span>
+                        <span style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue);">$<fmt:formatNumber value="${pintura.precio}" type="number" maxFractionDigits="0"/></span>
                     </div>
                     <div>
                         <strong class="text-muted" style="display: block; margin-bottom: 4px; font-size: 0.85rem; text-transform: uppercase;">Disponibilidad</strong>
