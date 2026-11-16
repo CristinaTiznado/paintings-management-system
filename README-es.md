@@ -22,13 +22,15 @@
 
 ¡Mira el sistema en acción! A continuación, se muestran los flujos de navegación completos de la aplicación, incluyendo la autenticación, exploración del catálogo, publicación de obras y el sistema de compras.
 
-*Experiencia de Escritorio*
+*Experiencia de Escritorio*<br>
 
+https://github.com/user-attachments/assets/de96845b-3a7b-4263-8f64-b22d4dfbdeb8
 
+<br>
 
-*Experiencia Móvil*
+*Experiencia Móvil*<br>
 
-
+https://github.com/user-attachments/assets/4a665cec-e58e-4d2e-b436-6df00ebb3f14
 
 ### Estados Vacíos y Casos Especiales
 
