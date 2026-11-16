@@ -25,11 +25,13 @@ See the Paintings Management System in action! Below are the full navigation flo
 
 *Desktop Experience*<br>
 
+https://github.com/user-attachments/assets/25e5d259-58d4-467d-a301-882d6407d880
 
 <br>
 
 *Mobile Experience*<br>
 
+https://github.com/user-attachments/assets/f086cd48-a5c1-4240-a6b1-ca5137bf86c4
 
 ### Empty States & Edge Cases
 Custom illustrations and dynamic UI handling for empty catalogs, out-of-stock items, and previously acquired paintings, ensuring a polished user experience.
@@ -58,10 +60,12 @@ Custom illustrations and dynamic UI handling for empty catalogs, out-of-stock it
 
 1. Open your MySQL manager.
 2. Create the database by running:
+   
    ```sql
    CREATE DATABASE pinturas_db;
    ```
 3. Verify that the `src/main/resources/application.properties` file has your local credentials:
+   
    ```properties
    spring.datasource.url=jdbc:mysql://localhost:3306/pinturas_db
    spring.datasource.username=root
@@ -73,14 +77,17 @@ Custom illustrations and dynamic UI handling for empty catalogs, out-of-stock it
 ## 🏃‍♂️ Steps to run
 
 1. Clone this repository:
+   
    ```bash
    git clone https://github.com/CristinaTiznado/paintings-management-system.git
    ```
 2. Navigate to the project directory:
+   
    ```bash
    cd Pinturas
    ```
 3. Start the application:
+   
    ```bash
    mvn spring-boot:run
    ```
