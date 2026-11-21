@@ -1,8 +1,8 @@
 🌍 *Leer en [Inglés](README.md)*
 
-# 🎨 Sistema de Gestión de Pinturas
+# 🎨 ArtShelf - Sistema de Gestión de Pinturas
 
-**Sistema de Gestión de Pinturas** es una aplicación web Full Stack en Java diseñada para administrar un catálogo de arte. Permite a los usuarios registrarse, publicar sus propias obras, explorar la galería completa y adquirir las pinturas disponibles, gestionando automáticamente el inventario y el historial de compras. Desarrollado originalmente como examen de certificación para el Bootcamp Full Stack Java impartido por **Skillnest** y patrocinado por **Banco de Chile**, el proyecto cuenta con una interfaz en Modo Oscuro (Dark Mode) completamente personalizada, lógica transaccional robusta y estrictas validaciones en el backend.
+**ArtShelf** es una aplicación web Full Stack en Java diseñada para administrar un catálogo de arte. Permite a los usuarios registrarse, publicar sus propias obras, explorar la galería completa y adquirir las pinturas disponibles, gestionando automáticamente el inventario y el historial de compras. Desarrollado originalmente como examen de certificación para el Bootcamp Full Stack Java impartido por **Skillnest** y patrocinado por **Banco de Chile**, el proyecto cuenta con una interfaz en Modo Oscuro (Dark Mode) completamente personalizada, lógica transaccional robusta y estrictas validaciones en el backend.
 
 ## ✨ Características Principales
 
