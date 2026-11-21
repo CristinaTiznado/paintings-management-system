@@ -74,7 +74,7 @@
         <div style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: var(--primary); color: white; border-radius: 10px;">
             <i data-lucide="palette" style="width: 20px; height: 20px;"></i>
         </div>
-        <h2 style="margin: 0; font-size: 1.5rem;">Pinturas</h2>
+        <h2 style="margin: 0; font-size: 1.5rem;">ArtShelf</h2>
     </a>
 
     <!-- Botón Hamburguesa -->

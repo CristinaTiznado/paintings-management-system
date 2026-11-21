@@ -3,7 +3,7 @@
 
 <header>
     <nav class="navbar" style="justify-content: center;">
-        <h2><i data-lucide="palette"></i> Pinturas</h2>
+        <h2><i data-lucide="palette"></i>ArtShelf</h2>
     </nav>
 </header>
 
