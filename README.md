@@ -1,6 +1,6 @@
 🌍 *Read in [Español](README-es.md)*
 
-# 🎨 Paintings Management System
+# 🎨 ArtShelf - Paintings Management System
 
 ![Java](https://img.shields.io/badge/Java_17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
@@ -8,7 +8,7 @@
 ![JSP](https://img.shields.io/badge/JSP-007396?style=for-the-badge&logo=java&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-**Paintings Management System** is a Full Stack Java web application designed to manage an art catalog. It allows users to register, publish their own artworks, explore the complete gallery, and acquire available paintings, automatically managing inventory and purchase history. Originally developed as a certification exam for the Full Stack Java Bootcamp by **Skillnest** and **Banco de Chile**, the project features a fully custom Dark Mode interface, robust transactional logic, and strict backend validations.
+**ArtShelf** is a Full Stack Java web application designed to manage an art catalog. It allows users to register, publish their own artworks, explore the complete gallery, and acquire available paintings, automatically managing inventory and purchase history. Originally developed as a certification exam for the Full Stack Java Bootcamp by **Skillnest** and **Banco de Chile**, the project features a fully custom Dark Mode interface, robust transactional logic, and strict backend validations.
 
 ## ✨ Key Features
 
@@ -21,7 +21,7 @@
 
 ## 📸 Project Demos
 
-See the Paintings Management System in action! Below are the full navigation flows for the application, including user authentication, gallery exploration, artwork publishing, and the acquisition system.
+See ArtShelf in action! Below are the full navigation flows for the application, including user authentication, gallery exploration, artwork publishing, and the acquisition system.
 
 *Desktop Experience*<br>
 
